@@ -1,0 +1,12 @@
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzAPI.exe
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Dockerfile
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzAPI.dll
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzAPI.deps.json
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzAPI.runtimeconfig.json
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzAPI.pdb
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Anbu\source\repos\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
