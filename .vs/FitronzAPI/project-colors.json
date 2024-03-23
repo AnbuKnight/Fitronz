@@ -5,7 +5,17 @@
       "ProjectGuid": "d617ed32-5bd5-4a92-8f34-1e18fabba121",
       "DisplayName": "FitronzAPI",
       "ColorIndex": 0
+    },
+    "87d73eec-82fc-41c6-a1e8-3c3e7cc81bff": {
+      "ProjectGuid": "87d73eec-82fc-41c6-a1e8-3c3e7cc81bff",
+      "DisplayName": "FitronzData",
+      "ColorIndex": 1
+    },
+    "9ea25fd9-20d3-4f13-b106-87cc15074219": {
+      "ProjectGuid": "9ea25fd9-20d3-4f13-b106-87cc15074219",
+      "DisplayName": "FitronzService",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }

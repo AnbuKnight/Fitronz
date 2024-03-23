@@ -1,24 +1,107 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anbu\\source\\repos\\FitronzAPI\\FitronzAPI\\FitronzAPI.csproj": {}
+    "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzAPI\\FitronzAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anbu\\source\\repos\\FitronzAPI\\FitronzAPI\\FitronzAPI.csproj": {
+    "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzAPI\\FitronzAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anbu\\source\\repos\\FitronzAPI\\FitronzAPI\\FitronzAPI.csproj",
+        "projectUniqueName": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzAPI\\FitronzAPI.csproj",
         "projectName": "FitronzAPI",
-        "projectPath": "C:\\Users\\Anbu\\source\\repos\\FitronzAPI\\FitronzAPI\\FitronzAPI.csproj",
-        "packagesPath": "C:\\Users\\Anbu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anbu\\source\\repos\\FitronzAPI\\FitronzAPI\\obj\\",
+        "projectPath": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzAPI\\FitronzAPI.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Anbu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzService\\FitronzService.csproj": {
+                "projectPath": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzService\\FitronzService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Google.Cloud.Storage.V1": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzData\\FitronzData.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzData\\FitronzData.csproj",
+        "projectName": "FitronzData",
+        "projectPath": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzData\\FitronzData.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzData\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,13 +128,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+            "Dapper.Extensions.PostgreSQL": {
               "target": "Package",
-              "version": "[1.14.0, )"
+              "version": "[4.2.4, )"
             },
-            "Swashbuckle.AspNetCore": {
+            "Npgsql": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[7.0.4, )"
             }
           },
           "imports": [
@@ -60,19 +143,94 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzService\\FitronzService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzService\\FitronzService.csproj",
+        "projectName": "FitronzService",
+        "projectPath": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzService\\FitronzService.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzData\\FitronzData.csproj": {
+                "projectPath": "F:\\Anbu\\Github_Repository\\FitronzAPI\\FitronzData\\FitronzData.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.60.0, )"
+            },
+            "Google.Cloud.Storage.V1": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
