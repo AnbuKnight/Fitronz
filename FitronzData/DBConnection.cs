@@ -16,7 +16,7 @@ namespace FitronzData
 
         public static NpgsqlConnection CreateConnection()
         {
-            NpgsqlConnection npgsqlConnection = new NpgsqlConnection("Host=34.132.187.39:5432;Username=postgres;Password=FitronZ*555*;Database=fitronz");                                   
+            NpgsqlConnection npgsqlConnection = new NpgsqlConnection("Host=194.238.18.190:5432;Username=fitronzdbuser;Password=FitronZ*555*;Database=fitronz");                                   
             return npgsqlConnection;
         }
     }

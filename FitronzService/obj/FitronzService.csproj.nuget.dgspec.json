@@ -117,6 +117,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.102.2, )"
+            },
             "Google.Apis.Auth": {
               "target": "Package",
               "version": "[1.60.0, )"

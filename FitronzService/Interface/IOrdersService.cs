@@ -12,5 +12,8 @@ namespace FitronzService.Interface
         Task<int> CreateOrder(Orders orderDetails);
         Task<GymDetails> GetGymDetailsForUsers(int partnerId);
         Task<UserOrders> GetUserOrderDetails(int userid);
+        Task<List<UserOrders>> GetOrderDetails();
+        Task<int> UpdateOrderStatus(OrderStatus orderStatus);
+        Task<int> UpdateDaysandStatusForUserCheckin(OrderStatus orderStatus);
     }
 }

@@ -9,9 +9,9 @@ namespace FitronzService.Interface
 {
     public interface ICloudStorageService
     {
-        Task<Dictionary<string, string>> UploadFilesToCloudStorage(IFormFileCollection files, string emailAddress, int partnerid, string comments);
+        Task<Dictionary<string, string>> UploadFilesToCloudStorage(IFormFileCollection files, string emailAddress, int partnerid, string comments, string googleReviewLink);
         Task<string> UploadFileAsync(IFormFile imageFile, string fileNameForStorage);
-        Task DeleteFileAsync(string fileNameForStorage);
-        Task<string> GetFileAsync(string fileNameForStorage);
+        //Task DeleteFileAsync(string fileNameForStorage);
+        //Task<string> GetFileAsync(string fileNameForStorage);
     }
 }

@@ -19,22 +19,39 @@ namespace FitronzAPI.Controllers
 
         //[HttpPost(Name = "AddPartner")]
         [HttpPost]
-        [Route("AddPartner")]
-        public async Task<IActionResult> AddPartner([FromBody] Partner partnerDetails)
+        [Route("UpsertPartner")]
+        public async Task<IActionResult> UpsertPartner([FromBody] Partner partnerDetails)
         {
             var resultText=string.Empty;
-            var result = await _registerPartnerService.AddPartner(partnerDetails);
-            if(result==1)
+            var result = await _registerPartnerService.UpsertPartnerTemp(partnerDetails);
+            if(result!=99)
             {
-                resultText = "Account created successfully";
+                resultText = "Partner information upserted successfully";
                 return new ObjectResult(resultText) { StatusCode = StatusCodes.Status200OK };
             }
             else
             {
-                resultText = "Error occurred while adding the partner";
+                resultText = "Error occurred while upserting the partner";
                 return new ObjectResult(resultText) { StatusCode = StatusCodes.Status500InternalServerError };
             }
                        
+        }
+
+        [HttpGet]
+        [Route("GetTempPartnerDetailsForAdmin")]
+        public async Task<IActionResult> GetTempPartnerDetailsForAdmin()
+        {
+            var resultText = string.Empty;
+            var result = await _registerPartnerService.GetTempPartnerDetailsForAdmin();
+            if (result!=null)
+            {                
+                return new ObjectResult(result) { StatusCode = StatusCodes.Status200OK };
+            }
+            else
+            {
+                resultText = "Partner not available";
+                return new ObjectResult(resultText) { StatusCode = StatusCodes.Status401Unauthorized };
+            }
         }
 
         [HttpGet]

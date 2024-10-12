@@ -11,5 +11,7 @@ namespace FitronzService.Interface
     {
         Task<int> AddFileDetailsToDB(Files fileDetails);
         Task<List<Files>> GetFileDetails(int partnerId);
+        Task<int> DeleteFileDetailsFromDB(string fileName, int partnerId, string action);
+        Task DeleteFileCreatedForZipDownload(string storagePath, string fileName);
     }
 }

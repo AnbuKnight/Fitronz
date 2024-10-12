@@ -21,7 +21,7 @@ namespace FitronzAPI.Controllers
         {
             var resultText = string.Empty;
             var result = await _ordersService.CreateOrder(orderDetails);
-            if (result == 1)
+            if (result == -1)
             {
                 resultText = "Order created successfully";
                 return new ObjectResult(resultText) { StatusCode = StatusCodes.Status200OK };
@@ -50,6 +50,63 @@ namespace FitronzAPI.Controllers
             var resultText = string.Empty;
             var result = await _ordersService.GetUserOrderDetails(userid);
             return new ObjectResult(result) { StatusCode = StatusCodes.Status200OK };
+        }
+
+        [HttpGet]
+        [Route("GetOrderDetails")]
+        public async Task<IActionResult> GetOrderDetails()
+        {
+            var resultText = string.Empty;
+            var result = await _ordersService.GetOrderDetails();
+            return new ObjectResult(result) { StatusCode = StatusCodes.Status200OK };
+        }
+
+        [HttpPost]
+        [Route("UpdateOrderStatus")]
+        public async Task<IActionResult> UpdateOrderStatus([FromBody] OrderStatus orderStatus)
+        {
+            var resultText = string.Empty;
+            var result = await _ordersService.UpdateOrderStatus(orderStatus);
+            if (result >0)
+            {
+                resultText = "Order status updated successfully";
+                return new ObjectResult(resultText) { StatusCode = StatusCodes.Status200OK };
+            }
+            else if (result == 0)
+            {
+                resultText = "No such order found to update the status";
+                return new ObjectResult(resultText) { StatusCode = StatusCodes.Status200OK };
+            }
+            else
+            {
+                resultText = "Error occurred while updating the order status";
+                return new ObjectResult(resultText) { StatusCode = StatusCodes.Status500InternalServerError };
+            }
+
+        }
+
+        [HttpPost]
+        [Route("UpdateDaysandStatusForUserCheckin")]
+        public async Task<IActionResult> UpdateDaysandStatusForUserCheckin([FromBody] OrderStatus orderStatus)
+        {
+            var resultText = string.Empty;
+            var result = await _ordersService.UpdateDaysandStatusForUserCheckin(orderStatus);
+            if (result > 1)
+            {
+                resultText = "Days have been decreased by 1 and status updated successfully";
+                return new ObjectResult(resultText) { StatusCode = StatusCodes.Status200OK };
+            }
+            else if (result == 0)
+            {
+                resultText = "No such order found to update the status and decrement the days";
+                return new ObjectResult(resultText) { StatusCode = StatusCodes.Status200OK };
+            }
+            else
+            {
+                resultText = "Error occurred while decrementing the days";
+                return new ObjectResult(resultText) { StatusCode = StatusCodes.Status500InternalServerError };
+            }
+
         }
     }
 }

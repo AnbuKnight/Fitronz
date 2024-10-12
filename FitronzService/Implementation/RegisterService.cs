@@ -32,7 +32,7 @@ namespace FitronzService.Implementation
                     {
                         _connection.Open();
                     }
-                    string commandText = "INSERT INTO partners (owner_name,gym_name, email_address, password, mobile_number, address, pincode, latitude, longitude, created_on, created_by, updated_on, updated_by, facilities) VALUES (@owner_name,@gym_name, @email_address, @password, @mobile_number, @address, @pincode, @latitude, @longitude, @created_on, @created_by, @updated_on, @updated_by, @facilities)";
+                    string commandText = "INSERT INTO partners_temp (owner_name,gym_name, email_address, password, mobile_number, address, pincode, latitude, longitude, created_on, created_by, updated_on, updated_by, facilities) VALUES (@owner_name,@gym_name, @email_address, @password, @mobile_number, @address, @pincode, @latitude, @longitude, @created_on, @created_by, @updated_on, @updated_by, @facilities)";
                     await using(var cmd = new NpgsqlCommand(commandText, _connection))
                     {
                         cmd.Parameters.AddWithValue("owner_name", partnerDetails.owner_name);
@@ -64,6 +64,103 @@ namespace FitronzService.Implementation
             return rowsImpacted;
         }
 
+        public async Task<int> UpsertPartnerTemp(Partner partnerDetails)
+        {
+
+            int rowsImpacted = 0;
+            using (_connection = DBConnection.CreateConnection())
+            {
+                try
+                {
+                    if (_connection.State != System.Data.ConnectionState.Open)
+                    {
+                        _connection.Open();
+                    }
+
+                    using (var command = new NpgsqlCommand("upsert_partners_temp", _connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Adding parameters with specified data types
+                        command.Parameters.Add(new NpgsqlParameter("owner_name", NpgsqlDbType.Text) { Value = partnerDetails.owner_name });
+                        command.Parameters.Add(new NpgsqlParameter("gym_name", NpgsqlDbType.Text) { Value = partnerDetails.gym_name });
+                        command.Parameters.Add(new NpgsqlParameter("email_address", NpgsqlDbType.Text) { Value = partnerDetails.email_address });
+                        command.Parameters.Add(new NpgsqlParameter("password", NpgsqlDbType.Text) { Value = partnerDetails.password });
+                        command.Parameters.Add(new NpgsqlParameter("mobile_number", NpgsqlDbType.Text) { Value = partnerDetails.mobile_number });
+                        command.Parameters.Add(new NpgsqlParameter("address", NpgsqlDbType.Text) { Value = partnerDetails.address });
+                        command.Parameters.Add(new NpgsqlParameter("pincode", NpgsqlDbType.Text) { Value = partnerDetails.pincode });
+                        command.Parameters.Add(new NpgsqlParameter("latitude", NpgsqlDbType.Numeric) { Value = partnerDetails.latitude });
+                        command.Parameters.Add(new NpgsqlParameter("longitude", NpgsqlDbType.Numeric) { Value = partnerDetails.longitude });
+                        command.Parameters.Add(new NpgsqlParameter("facilities", NpgsqlDbType.Text) { Value = partnerDetails.facilities });
+                        command.Parameters.Add(new NpgsqlParameter("created_by", NpgsqlDbType.Text) { Value = partnerDetails.created_by });
+                        command.Parameters.Add(new NpgsqlParameter("updated_by", NpgsqlDbType.Text) { Value = partnerDetails.updated_by });                        
+
+                        rowsImpacted = command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    rowsImpacted = 99;
+                    Console.WriteLine("Exception at UpsertPartnerTemp()");
+                    Console.WriteLine("EXCEPTION MESSAGE: " + ex.Message);
+                    Console.WriteLine("INNER EXCEPTION: " + ex.InnerException);
+                    Console.WriteLine("STACK TRACE: " + ex.StackTrace);
+                }
+            }
+            return rowsImpacted;
+        }
+
+        public async Task<List<Partner>> GetTempPartnerDetailsForAdmin()
+        {
+            List<Partner> partners = new List<Partner>();
+            using (_connection = DBConnection.CreateConnection())
+            {
+                try
+                {
+                    //Console.WriteLine("***CONNECTION STRING*** " + _connection.ConnectionString);
+                    if (_connection.State != System.Data.ConnectionState.Open)
+                    {
+                        _connection.Open();
+                    }
+                    string commandText = "select * from partners_temp where isapproved='false' and approval_status is null";
+                    await using (var cmd = new NpgsqlCommand(commandText, _connection))
+                    {
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Partner partner = new Partner();
+                                partner.owner_name = Convert.ToString(reader["owner_name"]);
+                                partner.gym_name = Convert.ToString(reader["gym_name"]);
+                                partner.email_address = Convert.ToString(reader["email_address"]);
+                                partner.password = Convert.ToString(reader["password"]);
+                                partner.mobile_number = Convert.ToString(reader["mobile_number"]);
+                                partner.address = Convert.ToString(reader["address"]);
+                                partner.pincode = Convert.ToString(reader["pincode"]);
+                                partner.latitude = (float)((reader["latitude"] != DBNull.Value) ? (Convert.ToDouble(reader["latitude"])) : (0));
+                                partner.longitude = (float)((reader["longitude"] != DBNull.Value) ? (Convert.ToDouble(reader["longitude"])) : (0));
+                                partner.created_on = Convert.ToDateTime(reader["created_on"]);
+                                partner.created_by = Convert.ToString(reader["created_by"]);
+                                partner.updated_on = Convert.ToDateTime(reader["updated_on"]);
+                                partner.updated_by = Convert.ToString(reader["updated_by"]);
+                                partner.is_activated = Convert.ToBoolean(reader["is_activated"]);
+                                partner.facilities = Convert.ToString(reader["facilities"]);
+                                partners.Add(partner);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Exception at GetPartnerDetails()");
+                    Console.WriteLine("EXCEPTION MESSAGE: " + ex.Message);
+                    Console.WriteLine("INNER EXCEPTION: " + ex.InnerException);
+                    Console.WriteLine("STACK TRACE: " + ex.StackTrace);
+                }
+            }
+            return partners;
+        }
+
         public async Task<Partner> GetPartnerDetails(string mobileNumber, string password)
         {
             Partner partner = new Partner();
@@ -71,6 +168,7 @@ namespace FitronzService.Implementation
             {
                 try
                 {
+                    Console.WriteLine("***CONNECTION STRING*** " + _connection.ConnectionString);
                     if (_connection.State != System.Data.ConnectionState.Open)
                     {
                         _connection.Open();

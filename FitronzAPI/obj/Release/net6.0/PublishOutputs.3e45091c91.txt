@@ -1,7 +1,13 @@
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzAPI.exe
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\publish\web.config
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\appsettings.json
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\fitronz-partner-c337f88b67a1.json
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\publish\appsettings.Development.json
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\publish\appsettings.json
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\publish\fitronz-partner-c337f88b67a1.json
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\publish\FitronzAPI.deps.json
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\publish\FitronzAPI.runtimeconfig.json
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Dockerfile
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzAPI.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzAPI.deps.json
@@ -9,9 +15,12 @@ F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Fi
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzAPI.pdb
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Autofac.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Autofac.Extensions.DependencyInjection.dll
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\ClosedXML.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Dapper.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Dapper.Extensions.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Dapper.Extensions.PostgreSql.dll
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\DocumentFormat.OpenXml.dll
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\ExcelNumberFormat.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Google.Api.Gax.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Google.Api.Gax.Rest.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Google.Apis.dll
@@ -20,6 +29,7 @@ F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Go
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Google.Apis.Core.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Google.Apis.Storage.v1.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Google.Cloud.Storage.V1.dll
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Irony.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\System.Net.Http.Formatting.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Configuration.dll
@@ -37,9 +47,12 @@ F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Mi
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Npgsql.dll
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\SixLabors.Fonts.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\System.IO.Packaging.dll
+F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\XLParser.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzData.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzService.dll
 F:\Anbu\Github_Repository\FitronzAPI\FitronzAPI\obj\Release\net6.0\PubTmp\Out\FitronzService.pdb

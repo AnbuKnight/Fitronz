@@ -10,6 +10,9 @@ namespace FitronzService.Models
     {
         public int partner_id { get; set; }
         public string gym_name { get; set; }
+        public string owner_name { get; set; }
+        public string mobile_number { get; set; }
+        public string email_address { get; set; }
         public float latitude { get; set; }
         public float longitude { get; set; }
         public string? facilities { get; set; }
@@ -36,6 +39,7 @@ namespace FitronzService.Models
     {
         public int gymtype_id { get; set; }
         public decimal price { get; set; }
+        public string gymtype { get; set; }
     }
 
     public class DeleteSlotArguments

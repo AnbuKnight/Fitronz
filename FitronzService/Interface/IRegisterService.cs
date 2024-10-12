@@ -10,6 +10,8 @@ namespace FitronzService.Interface
     public interface IRegisterService
     {
         Task<int> AddPartner(Partner partnerDetails);
+        Task<int> UpsertPartnerTemp(Partner partnerDetails);
+        Task<List<Partner>> GetTempPartnerDetailsForAdmin();
         Task<Partner> GetPartnerDetails(string mobileNumber, string password);
         Task<int> UpsertGymDetails(GymDetails gymDetails);
         Task<List<SlotDetails>> GetGymDetails(int partnerId);
