@@ -54,6 +54,7 @@ builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddCors(options => options.AddPolicy("Cors", builder =>
 {
     builder
+    .WithOrigins("http://194.238.18.190")
     .AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader();

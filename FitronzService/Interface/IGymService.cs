@@ -10,5 +10,6 @@ namespace FitronzService.Interface
     public interface IGymService
     {
         Task<List<Partner>> GetGymList();
+        Task<List<GymDetails>> GetGymListWithSlotDetails();
     }
 }

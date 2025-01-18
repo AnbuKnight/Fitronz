@@ -47,6 +47,7 @@ namespace FitronzService.Implementation
                         command.Parameters.Add(new NpgsqlParameter("created_by", NpgsqlDbType.Text) { Value = partnerDetails.created_by });
                         command.Parameters.Add(new NpgsqlParameter("updated_by", NpgsqlDbType.Text) { Value = partnerDetails.updated_by });
                         command.Parameters.Add(new NpgsqlParameter("admin_action", NpgsqlDbType.Text) { Value = partnerDetails.admin_action });
+                        command.Parameters.Add(new NpgsqlParameter("files_to_be_deleted", NpgsqlDbType.Text) { Value = (partnerDetails.files_to_be_deleted!=null? partnerDetails.files_to_be_deleted:string.Empty) });
 
                         rowsImpacted = command.ExecuteNonQuery();
                     }

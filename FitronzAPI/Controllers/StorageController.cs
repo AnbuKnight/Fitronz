@@ -96,9 +96,9 @@ namespace FitronzAPI.Controllers
         private readonly string _storagePath = "/var/www/fitronzapi/storage";
 
         [HttpGet("DownloadSingleFile")]
-        public IActionResult DownloadSingleFile(string fileName, int partnerId)
+        public IActionResult DownloadSingleFile(string fileName, string emailAddress)
         {
-            var filePath = Path.Combine(_storagePath, "Partner_ID_" + partnerId + "_" + fileName);
+            var filePath = Path.Combine(_storagePath,  fileName);
 
             if (!System.IO.File.Exists(filePath))
             {
@@ -127,9 +127,9 @@ namespace FitronzAPI.Controllers
         //}
 
         [HttpGet("DownloadAllFiles")]
-        public IActionResult DownloadAllFiles(int partnerId)
+        public IActionResult DownloadAllFiles(string emailAddress)
         {
-            var files = Directory.GetFiles(_storagePath, $"{"Partner_ID_" + partnerId}*")
+            var files = Directory.GetFiles(_storagePath, $"{emailAddress.Split('@')[0]}*")
                                 .Select(Path.GetFileName)
                                 .ToList();
 
@@ -138,7 +138,7 @@ namespace FitronzAPI.Controllers
                 return NotFound();
             }
 
-            var zipPath = Path.Combine(_storagePath, "Partner_ID_" + partnerId + "_" +"fitronz_files.zip");
+            var zipPath = Path.Combine(_storagePath, emailAddress.Split('@')[0] + "_" +"fitronz_files.zip");
 
             using (var zipStream = new FileStream(zipPath, FileMode.Create))
             using (var archive = new ZipArchive(zipStream, ZipArchiveMode.Create, true))
@@ -151,7 +151,7 @@ namespace FitronzAPI.Controllers
             }
 
             var zipBytes = System.IO.File.ReadAllBytes(zipPath);
-            _fileService.DeleteFileCreatedForZipDownload(_storagePath,"Partner_ID_" + partnerId + "_" + "fitronz_files.zip");
+            _fileService.DeleteFileCreatedForZipDownload(_storagePath, emailAddress.Split('@')[0] + "_" + "fitronz_files.zip");
             return File(zipBytes, "application/zip", "fitronz_files.zip");
         }
 
@@ -166,9 +166,9 @@ namespace FitronzAPI.Controllers
         //}
 
         [HttpDelete("DeleteSingleFile")]
-        public async Task<IActionResult> DeleteSingleFileAsync(string fileName, int partnerId)
+        public async Task<IActionResult> DeleteSingleFileAsync(string fileName, int partnerId, string emailAddress)
         {
-            var filePath = Path.Combine(_storagePath, "Partner_ID_" + partnerId + "_" + fileName);
+            var filePath = Path.Combine(_storagePath,  fileName);
 
             if (!System.IO.File.Exists(filePath))
             {
@@ -181,9 +181,9 @@ namespace FitronzAPI.Controllers
         }
 
         [HttpDelete("DeleteAllFiles")]
-        public async Task<IActionResult> DeleteAllFilesAsync(int partnerId)
+        public async Task<IActionResult> DeleteAllFilesAsync(int partnerId, string emailAddress)
         {
-            var files = Directory.GetFiles(_storagePath, $"{"Partner_ID_" + partnerId}*")
+            var files = Directory.GetFiles(_storagePath, $"{emailAddress.Split('@')[0]}*")
                                 .Select(Path.GetFileName)
                                 .ToList();
 
@@ -199,6 +199,61 @@ namespace FitronzAPI.Controllers
             }
             await _fileService.DeleteFileDetailsFromDB("", partnerId, "delete_all");
             return Ok(new { message = "Files deleted successfully.", deletedFiles = files });
+        }
+
+        [HttpGet("get-files/{searchString}")]
+        public async Task<IActionResult> GetFiles(string searchString)
+        {
+            try
+            {
+                // Define the storage directory path
+                var directoryPath = "/var/www/fitronzapi/storage";
+
+                // Get all files in the directory
+                var files = Directory.GetFiles(directoryPath)
+                                      .Where(f => Path.GetFileName(f).Contains(searchString))
+                                      .Select(f => Path.GetFileName(f))
+                                      .ToList();
+
+                // If no files match, return not found
+                if (files.Count == 0)
+                {
+                    return NotFound("No files found matching the search string.");
+                }
+
+                // Return the list of matching file names
+                return Ok(files);
+            }
+            catch (System.Exception ex)
+            {                
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("get-file/{fileName}")]
+        public async Task<IActionResult> GetFile(string fileName)
+        {
+            try
+            {
+                // Define the file path on the server
+                var filePath = Path.Combine("/var/www/fitronzapi/storage", fileName);
+
+                // Check if the file exists
+                if (!System.IO.File.Exists(filePath))
+                {
+                    return NotFound("File not found");
+                }
+
+                // Read the file content as a byte array
+                var fileBytes = await System.IO.File.ReadAllBytesAsync(filePath);
+
+                // Return the file as a response (with appropriate content type, assuming JPG images)
+                return File(fileBytes, "image/jpeg"); // You can modify the MIME type based on your file type
+            }
+            catch (Exception ex)
+            {                
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 }

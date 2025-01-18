@@ -28,5 +28,22 @@ namespace FitronzAPI.Controllers
                 return new ObjectResult(resultText) { StatusCode = StatusCodes.Status401Unauthorized };
             }
         }
+
+        [HttpGet]
+        [Route("GetGymListWithSlotDetails")]
+        public async Task<IActionResult> GetGymListWithSlotDetails()
+        {
+            var resultText = string.Empty;
+            var result = await _gymService.GetGymListWithSlotDetails();
+            if (result != null)
+            {
+                return new ObjectResult(result) { StatusCode = StatusCodes.Status200OK };
+            }
+            else
+            {
+                resultText = "Gym list details not available";
+                return new ObjectResult(resultText) { StatusCode = StatusCodes.Status401Unauthorized };
+            }
+        }
     }
 }

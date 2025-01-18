@@ -28,6 +28,7 @@ namespace FitronzService.Models
         public DateTime? updated_on { get; set; }
         public string? updated_by { get; set; }
         public string? admin_action { get; set; }
+        public string? files_to_be_deleted { get; set; }
 
     }
 }

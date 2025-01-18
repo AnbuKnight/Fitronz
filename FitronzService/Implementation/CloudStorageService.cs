@@ -62,8 +62,9 @@ namespace FitronzService.Implementation
             try
             {
                 foreach (var file in files)
-                {                    
-                    var uploadResult = UploadFileAsync(file, "Partner_ID_"+partnerId + "_" + file.FileName).Result;                    
+                {
+                    //var uploadResult = UploadFileAsync(file, "Partner_ID_"+partnerId + "_" + file.FileName).Result;                    
+                    var uploadResult = UploadFileAsync(file, emailAddress.Split('@')[0] + "_" + file.FileName).Result;
                     uploadedFileDetails.Add(file.FileName, uploadResult);
 
                     Files fileDetails = new Files();

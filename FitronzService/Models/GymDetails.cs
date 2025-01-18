@@ -23,6 +23,7 @@ namespace FitronzService.Models
         public string? updated_by { get; set; }
         public string gym_address { get; set; }
         public string gym_pincode { get; set; }
+        public bool is_activated { get; set; } = false;
     }
 
     public class SlotDetails
